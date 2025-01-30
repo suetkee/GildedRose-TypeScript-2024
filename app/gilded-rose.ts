@@ -10,12 +10,14 @@ export class Item {
   }
 }
 
+
 export class GildedRose {
   items: Array<Item>;
 
   constructor(items = [] as Array<Item>) {
     this.items = items;
   }
+
 
   updateQuality() {
     for (let i = 0; i < this.items.length; i++) {
@@ -63,7 +65,7 @@ export class GildedRose {
         }
       }
     }
-
+    
     return this.items;
   }
 }
