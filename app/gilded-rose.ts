@@ -43,7 +43,13 @@ export class GildedRose {
   }
 
   const updatedItemQuality = (quality, SellIn) => {
-    return quality>0 ? quality - 1 : quality ;
+    if(quality>0){
+      quality-=1;
+     }
+     if(SellIn <0 && quality >0){
+      quality-=1;
+    }
+    return quality;
   }
 
   const updatedSulfurasQuality = (quality) => {
