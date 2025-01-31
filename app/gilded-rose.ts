@@ -20,31 +20,73 @@ export class GildedRose {
 
   updateQuality() {
 
-  /*
-  const rules = [
-        ['Aged Brie', +, 1 ],
-        ['Backstage passes to a TAFKAL80ETC concert',  ],
-        ['Sulfuras, Hand of Ragnaros', +,0],
-    ]
-       
-        for (const item of items) {
-            if (item.name === 'Aged Brie'&&) {
-              item.quality = updatedItemQuality()
-            }
+  const updateAgedBrieQuality = (quality) => {
+    return quality <50 ? quality + 1 : quality;
+    };
+  
+
+  const updateBackstagePassesQuality = (quality, sellIn) => {
+  
+    if(quality<50){
+     quality+=1;
+    }
+    if(sellIn <11 && quality <50){
+      quality+=1;
+    }
+    if(sellIn<6 && quality <50){
+      quality+=1;
+    }        
+    if(sellIn<0){
+      quality = 0;
+    }   
+    return quality;
+  }
+
+  const updatedItemQuality = (quality, SellIn) => {
+    return quality>0 ? quality - 1 : quality ;
+  }
+
+  const updatedSulfurasQuality = (quality) => {
+    return quality!==80?quality=80:quality;    
+  }
+
+  const updateSellIn = (sellIn)=>{
+    return sellIn-1;
+  }
+         
+        for (const item of this.items) {
+          switch(item.name){
+
+            case 'Aged Brie':
+              item.sellIn = updateSellIn(item.sellIn);     
+              item.quality = updateAgedBrieQuality(item.quality);
+              break;     
+
+            case 'Backstage passes to a TAFKAL80ETC concert':
+              item.sellIn = updateSellIn(item.sellIn);
+              item.quality = updateBackstagePassesQuality(item.quality, item.sellIn);
+              break;
+            
+            case 'Sulfuras, Hand of Ragnaros': 
+              item.quality = updatedSulfurasQuality(item.quality);  
+              break;
+
+            default:
+              item.sellIn = updateSellIn(item.sellIn);
+              item.quality = updatedItemQuality(item.quality, item.sellIn);
+              
+        
+              break;
+
+          }
+           
         }
 
-    const updatedItemQuality = (operator, num) => {
-        this.
-*/
+   
 
+ ///////////////////////////////////////////////////////////   
+    /*
 
-
-
-
-    
-    
-
-/*
 
 for (let i = 0; i < this.items.length; i++) {
   if (this.items[i].name != 'Aged Brie' && this.items[i].name != 'Backstage passes to a TAFKAL80ETC concert') {
@@ -93,6 +135,7 @@ for (let i = 0; i < this.items.length; i++) {
 }
 
 return this.items;
+
 
 */
 }
