@@ -58,32 +58,32 @@ export class GildedRose {
           switch(item.name){
 
             case 'Aged Brie':
-              item.sellIn = updateSellIn(item.sellIn);     
               item.quality = updateAgedBrieQuality(item.quality);
+              item.sellIn = updateSellIn(item.sellIn); 
               break;     
 
             case 'Backstage passes to a TAFKAL80ETC concert':
-              item.sellIn = updateSellIn(item.sellIn);
               item.quality = updateBackstagePassesQuality(item.quality, item.sellIn);
+              item.sellIn = updateSellIn(item.sellIn);
+              //return item
               break;
             
             case 'Sulfuras, Hand of Ragnaros': 
               item.quality = updatedSulfurasQuality(item.quality);  
+              //return item
               break;
 
             default:
-              item.sellIn = updateSellIn(item.sellIn);
               item.quality = updatedItemQuality(item.quality, item.sellIn);
-              
-        
+              item.sellIn = updateSellIn(item.sellIn);
+             //return item
               break;
-
           }
            
         }
 
    
-
+return this.items
  ///////////////////////////////////////////////////////////   
     /*
 
